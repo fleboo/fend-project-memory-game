@@ -80,10 +80,29 @@ function openCards(card) {
 function compareCards(arr) {
 	if (arr[0].children[0].classList[1] === arr[1].children[0].classList[1]) {
 		console.log("They MATCH!!!");
+		matchedCards(arr[0].children[0], arr[1].children[0]);
 	} else {
 		setTimeout(	function() {
 			arr[0].children[0].parentElement.classList.remove("open", "show");
 			arr[1].children[0].parentElement.classList.remove("open", "show");
 		}, 500);
 	}
+}
+
+// Lock matched cards in open position
+function matchedCards(firstCard, secondCard) {
+	console.log("firstCard: " + firstCard.parentElement.tagName);
+	firstCard.parentElement.classList.add("match");
+	secondCard.parentElement.classList.add("match");
+
+	matched++;
+
+	firstCard.parentElement.classList.remove("open", "show");
+	secondCard.parentElement.classList.remove("open", "show");
+
+	//Remove event listeners on matched cards
+	firstCard.parentElement.removeEventListener('click', showCard, false);
+	secondCard.parentElement.removeEventListener('click', showCard, false);
+
+	console.log("Matched cards: " + matched);
 }
