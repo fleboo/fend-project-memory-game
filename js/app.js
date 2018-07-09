@@ -127,6 +127,7 @@ function openCards(card) {
 	listOpenCards.push(card);
 	var numCards = listOpenCards.length;
 	if (numCards === 2) {
+		countMove();
 		compareCards(listOpenCards);
 		listOpenCards = [];
 	}
