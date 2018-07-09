@@ -12,6 +12,21 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ let deck = document.getElementsByClassName('deck')[0];
+ let cardClicked;
+ let listOpenCards = [];
+ let counter = 0;
+
+function beginGame() {
+	// Get shuffled cards
+	var shuffledCards = shuffle(cardList);
+
+	// Loop through each card and add to HTML
+	for (let i = 0; i < shuffledCards.length; i++) {
+		deck.children[i].children[0].classList.add(shuffledCards[i]);
+	}
+}
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
