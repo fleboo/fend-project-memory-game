@@ -54,10 +54,10 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-//Event listener for cards
+// Event listener for cards
 deck.addEventListener('click', showCard, false);
 
-//Function to show the card
+// Function to show the card
 function showCard(evt) {
 	if (evt.target.nodeName === 'LI') {
 		evt.target.classList.add("open", "show");
@@ -73,5 +73,17 @@ function openCards(card) {
 	if (numCards === 2) {
 		compareCards(listOpenCards);
 		listOpenCards = [];
+	}
+}
+
+// Function to compare cards
+function compareCards(arr) {
+	if (arr[0].children[0].classList[1] === arr[1].children[0].classList[1]) {
+		console.log("They MATCH!!!");
+	} else {
+		setTimeout(	function() {
+			arr[0].children[0].parentElement.classList.remove("open", "show");
+			arr[1].children[0].parentElement.classList.remove("open", "show");
+		}, 500);
 	}
 }
