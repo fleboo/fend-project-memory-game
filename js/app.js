@@ -58,11 +58,23 @@ function beginGame() {
 
 	// Loop through each card and add to HTML
 	for (let i = 0; i < shuffledCards.length; i++) {
-		eck.children[i].classList.remove('match', 'open', 'show');
+		deck.children[i].classList.remove('match', 'open', 'show');
 		deck.children[i].children[0].className = '';
 		deck.children[i].children[0].className = 'fa';
 		deck.children[i].children[0].classList.add(shuffledCards[i]);
 	}
+	//reset moves and timer
+	counter = 0;
+	moves.textContent = counter;
+
+	//reset matched cards
+	matched = 0;
+
+	// reset timer
+	hr = 0;
+	min = 0;
+	sec = 0;
+	timer.textContent = "0" + min + ": " + "0" + sec;
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
