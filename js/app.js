@@ -75,6 +75,11 @@ function beginGame() {
 	min = 0;
 	sec = 0;
 	timer.textContent = "0" + min + ": " + "0" + sec;
+
+	// reset stars
+	for (let i = 0; i < 3; i++) {
+		stars.children[i].style.visibility = "visible";
+	}
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
