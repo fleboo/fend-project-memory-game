@@ -204,3 +204,8 @@ function win() {
 let clickIcon = function () {
 	closeIcon.addEventListener('click', closePopup, false);
 }
+
+// Function to close popup
+let closePopup = function () {
+		modal.classList.remove("reveal");
+}
