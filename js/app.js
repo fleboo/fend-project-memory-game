@@ -45,6 +45,10 @@ let closeIcon = document.querySelector('.close');
 // declare and select play again button
 let playButton = document.getElementById('play-btn');
 
+// Reset game button and event listener
+let restBtn = document.querySelector('.restart');
+restBtn.addEventListener('click', beginGame, false);
+
 function beginGame() {
 	// Get shuffled cards
 	var shuffledCards = shuffle(cardList);
