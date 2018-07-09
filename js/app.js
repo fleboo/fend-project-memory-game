@@ -33,6 +33,18 @@ let moves = document.querySelector('.moves');
 // select stars
 let stars = document.querySelector('.stars');
 
+//final game time
+let finalTime;
+
+// declare and select popup modal
+let modal = document.getElementById('box');
+
+// declare and select close icon
+let closeIcon = document.querySelector('.close');
+
+// declare and select play again button
+let playButton = document.getElementById('play-btn');
+
 function beginGame() {
 	// Get shuffled cards
 	var shuffledCards = shuffle(cardList);
