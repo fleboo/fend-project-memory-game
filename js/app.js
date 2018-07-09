@@ -80,6 +80,7 @@ function beginGame() {
 	for (let i = 0; i < 3; i++) {
 		stars.children[i].style.visibility = "visible";
 	}
+	clearInterval(timeKeeper);
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
