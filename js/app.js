@@ -199,3 +199,8 @@ function win() {
 	// close popup
 	clickIcon();
 }
+
+// Close icon event listener
+let clickIcon = function () {
+	closeIcon.addEventListener('click', closePopup, false);
+}
