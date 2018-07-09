@@ -17,6 +17,16 @@
  let listOpenCards = [];
  let counter = 0;
 
+  //count matched cards
+ let matched = 0;
+
+ // timer variables
+ let timeKeeper;
+ let timer = document.getElementById('timer');
+ let sec = 0;
+ let min = 0;
+ let hr = 0;
+
 function beginGame() {
 	// Get shuffled cards
 	var shuffledCards = shuffle(cardList);
@@ -105,4 +115,27 @@ function matchedCards(firstCard, secondCard) {
 	secondCard.parentElement.removeEventListener('click', showCard, false);
 
 	console.log("Matched cards: " + matched);
+}
+
+// Start timer and set timer HTML
+function initTimer() {
+	timeKeeper = setInterval(function(){
+		if (sec < 10 && min < 10) {
+			timer.textContent = "0" + min + ": " + "0" + sec
+		} else if (sec < 10 && min >= 10) {
+			timer.textContent = min + ": " + "0" + sec
+		} else if (sec >= 10 && min < 10) {
+			timer.textContent = "0" + min + ": " + sec
+		}
+		
+		sec++
+		if (sec === 60) {
+			min++
+			sec = 0;
+		}
+		if (min === 60) {
+			hr++
+			min = 0;
+		}
+	}, 1000);
 }
