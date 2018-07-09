@@ -133,6 +133,10 @@ function matchedCards(firstCard, secondCard) {
 	secondCard.parentElement.removeEventListener('click', showCard, false);
 
 	console.log("Matched cards: " + matched);
+
+	if (matched === 1) {
+		win();
+	}
 }
 
 // Start timer and set timer HTML
