@@ -65,3 +65,13 @@ function showCard(evt) {
 		openCards(cardClicked);
 	}
 }
+
+// Function to add clicked cards to a list
+function openCards(card) {
+	listOpenCards.push(card);
+	var numCards = listOpenCards.length;
+	if (numCards === 2) {
+		compareCards(listOpenCards);
+		listOpenCards = [];
+	}
+}
