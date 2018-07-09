@@ -1,10 +1,10 @@
 /*
  * Create a list that holds all of your cards
  */
- var cardList = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt',
- 					'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb', 'fa-diamond', 
- 					'fa-paper-plane-o', 'fa-anchor', 'fa-bolt',
- 					'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
+var cardList = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt',
+				'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb', 'fa-diamond', 
+				'fa-paper-plane-o', 'fa-anchor', 'fa-bolt',
+				'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
 
 /*
  * Display the cards on the page
@@ -12,20 +12,26 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
- let deck = document.getElementsByClassName('deck')[0];
- let cardClicked;
- let listOpenCards = [];
- let counter = 0;
+let deck = document.getElementsByClassName('deck')[0];
+let cardClicked;
+let listOpenCards = [];
+let counter = 0;
 
-  //count matched cards
- let matched = 0;
+//count matched cards
+let matched = 0;
 
  // timer variables
- let timeKeeper;
- let timer = document.getElementById('timer');
- let sec = 0;
- let min = 0;
- let hr = 0;
+let timeKeeper;
+let timer = document.getElementById('timer');
+let sec = 0;
+let min = 0;
+let hr = 0;
+
+ // select number of moves HTML
+let moves = document.querySelector('.moves');
+
+// select stars
+let stars = document.querySelector('.stars');
 
 function beginGame() {
 	// Get shuffled cards
@@ -138,4 +144,29 @@ function initTimer() {
 			min = 0;
 		}
 	}, 1000);
+}
+
+// count the number of moves
+function countMove() {
+	counter++;
+	console.log("Move Number: " + counter);
+	moves.textContent = counter;
+	// begin clock on first move
+	if (counter === 1) {
+		hr = 0;
+		min = 0;
+		sec = 0;
+		initTimer();
+	}
+
+	if (counter <= 8) {
+		stars.style.visibility = "visible";
+	} else if (8 < counter && counter < 12) {
+		stars.lastElementChild.style.visibility = "hidden";
+	} else if (counter >= 12) {
+		for (let i = 0; i < 1; i++) {
+			stars.children[i].style.visibility = "hidden";			
+		}
+	
+	}
 }
