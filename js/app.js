@@ -212,3 +212,10 @@ let closePopup = function () {
 
 // Add event listener to the play again button
 playButton.addEventListener('click', playAgain, false);
+
+// Play again button function
+function playAgain () {
+	beginGame();
+	closePopup();
+}
+
