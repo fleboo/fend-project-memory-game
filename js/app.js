@@ -27,7 +27,6 @@ function beginGame() {
 	}
 }
 
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -54,3 +53,15 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+//Event listener for cards
+deck.addEventListener('click', showCard, false);
+
+//Function to show the card
+function showCard(evt) {
+	if (evt.target.nodeName === 'LI') {
+		evt.target.classList.add("open", "show");
+		cardClicked = evt.target;
+		openCards(cardClicked);
+	}
+}
