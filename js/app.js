@@ -49,6 +49,9 @@ let playButton = document.getElementById('play-btn');
 let restBtn = document.querySelector('.restart');
 restBtn.addEventListener('click', beginGame, false);
 
+// Begin game on document load
+beginGame();
+
 function beginGame() {
 	// Get shuffled cards
 	var shuffledCards = shuffle(cardList);
