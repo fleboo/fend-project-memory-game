@@ -170,3 +170,7 @@ button:focus, button:hover {
     outline: 0;
 }
 /* End popup style*/
+
+span:nth-of-type(2) {
+    padding-left: 18%;
+}
