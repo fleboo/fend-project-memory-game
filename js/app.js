@@ -182,3 +182,20 @@ function countMove() {
 	
 	}
 }
+
+// display popup when all cards are matched
+function win() {
+	console.log('You WON!!');
+	clearInterval(timeKeeper);
+
+	finalTime = timer.textContent;
+	console.log(finalTime);
+
+	modal.classList.add("reveal");
+
+	document.getElementById("totalMoves").textContent = counter;
+	document.getElementById("totalTime").textContent = finalTime;
+
+	// close popup
+	clickIcon();
+}
