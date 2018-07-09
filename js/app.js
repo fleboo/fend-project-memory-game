@@ -58,6 +58,9 @@ function beginGame() {
 
 	// Loop through each card and add to HTML
 	for (let i = 0; i < shuffledCards.length; i++) {
+		eck.children[i].classList.remove('match', 'open', 'show');
+		deck.children[i].children[0].className = '';
+		deck.children[i].children[0].className = 'fa';
 		deck.children[i].children[0].classList.add(shuffledCards[i]);
 	}
 }
