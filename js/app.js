@@ -209,3 +209,6 @@ let clickIcon = function () {
 let closePopup = function () {
 		modal.classList.remove("reveal");
 }
+
+// Add event listener to the play again button
+playButton.addEventListener('click', playAgain, false);
