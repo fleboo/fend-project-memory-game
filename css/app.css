@@ -174,3 +174,9 @@ button:focus, button:hover {
 span:nth-of-type(2) {
     padding-left: 18%;
 }
+
+/* Formatting star rating on popup modal*/
+#star-rating li {
+    list-style-type: none;
+    display: inline-block;
+}
