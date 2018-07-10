@@ -1,20 +1,28 @@
 # Memory Game Project
 
-## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+The Memory Game is a simple game that lets the player match two cards at a time in a deck of sixteen cards. The user wins when all cards have been successfully matched.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* Launch the game
+* Begin by click on any hidden card. The card will remain open until a second card is selected.
+* Click on a second card. If the cards match, they'll be locked in the open position. Otherwise, both cards are hidden again.
+* Continue the same process until all sixteen cards are paired.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Dependencies and Acknowledgments
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+* Richard Kalehoff with Udacity for the initial HTML and CSS template.
+* Fisher–Yates shuffle algorithm used to shuffle the cards: http://stackoverflow.com/a/2450976.
+* Bootstrap and Font Awesome for the card icons.
+* Google fonts
 
-## Contributing
+## How I Designed the Game
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+* Create a list of all cards
+* Shuffle the cards with the Fisher–Yates shuffle
+* Compare two cards at a time to determine if they match, and start the timer
+* Lock the matched cards in the open position and remove the event listeners
+* Show a popup modal with the fame summary when all cards are matched, and stop the timer
+* Give the user the option to play the game again by clicking the 'Play Again' button
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+The cards are shuffled at the begin of the game, when the 'Play Again' button is clicked, or when the restart icon is clicked. 
