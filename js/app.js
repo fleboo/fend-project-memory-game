@@ -162,7 +162,7 @@ function matchedCards(firstCard, secondCard) {
 
 	console.log("Matched cards: " + matched);
 
-	if (matched === 1) {
+	if (matched === 8) {
 		win();
 	}
 }
