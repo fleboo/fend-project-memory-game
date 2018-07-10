@@ -148,7 +148,6 @@ function compareCards(arr) {
 
 // Lock matched cards in open position
 function matchedCards(firstCard, secondCard) {
-	console.log("firstCard: " + firstCard.parentElement.tagName);
 	firstCard.parentElement.classList.add("match");
 	secondCard.parentElement.classList.add("match");
 
@@ -163,7 +162,7 @@ function matchedCards(firstCard, secondCard) {
 
 	console.log("Matched cards: " + matched);
 
-	if (matched === 8) {
+	if (matched === 1) {
 		win();
 	}
 }
@@ -220,14 +219,14 @@ function countMove() {
 function win() {
 	console.log('You WON!!');
 	clearInterval(timeKeeper);
-
 	finalTime = timer.textContent;
-	console.log(finalTime);
+	let rating = document.querySelector('.stars').innerHTML;
 
 	modal.classList.add("reveal");
 
-	document.getElementById("totalMoves").textContent = counter;
-	document.getElementById("totalTime").textContent = finalTime;
+	document.getElementById("total-moves").textContent = counter;
+	document.getElementById("total-time").textContent = finalTime;
+	document.getElementById("star-rating").innerHTML = rating;
 
 	// close popup
 	clickIcon();
