@@ -1,10 +1,17 @@
 /*
  * Create a list that holds all of your cards
  */
-let cardList = ['fa-diamond', 'fa-paper-plane-o', 'fa-anchor', 'fa-bolt',
-				'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb', 'fa-diamond', 
-				'fa-paper-plane-o', 'fa-anchor', 'fa-bolt',
-				'fa-cube', 'fa-leaf', 'fa-bicycle', 'fa-bomb'];
+let cardList = [
+'fa-diamond', 
+'fa-paper-plane-o', 
+'fa-anchor', 
+'fa-bolt',
+'fa-cube', 
+'fa-leaf', 
+'fa-bicycle',  
+'fa-bomb'];
+
+let doubleCardList = cardList.concat(cardList);
 
 /*
  * Display the cards on the page
@@ -54,7 +61,7 @@ beginGame();
 
 function beginGame() {
 	// Get shuffled cards
-	var shuffledCards = shuffle(cardList);
+	var shuffledCards = shuffle(doubleCardList);
 
 	// Loop through each card and add to HTML
 	for (let i = 0; i < shuffledCards.length; i++) {
@@ -195,6 +202,7 @@ function countMove() {
 	counter++;
 	console.log("Move Number: " + counter);
 	moves.textContent = counter;
+
 	// begin clock on first move
 	if (counter === 1) {
 		hr = 0;
