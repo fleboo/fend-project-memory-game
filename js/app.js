@@ -33,6 +33,7 @@ let timer = document.getElementById('timer');
 let sec = 0;
 let min = 0;
 let hr = 0;
+let timerStarted;
 
  // select number of moves HTML
 let moves = document.querySelector('.moves');
@@ -65,7 +66,7 @@ function beginGame() {
 
 	// Loop through each card and add to HTML
 	for (let i = 0; i < shuffledCards.length; i++) {
-		deck.children[i].classList.remove('match', 'open', 'show');
+		deck.children[i].classList.remove('match', 'open', 'show', 'event');
 		deck.children[i].children[0].className = '';
 		deck.children[i].children[0].className = 'fa';
 		deck.children[i].children[0].classList.add(shuffledCards[i]);
@@ -76,6 +77,9 @@ function beginGame() {
 
 	//reset matched cards
 	matched = 0;
+
+	// set timerStarted to false
+	timerStarted = false;
 
 	// reset timer
 	hr = 0;
@@ -123,7 +127,10 @@ deck.addEventListener('click', showCard, false);
 // Function to show the card
 function showCard(evt) {
 	if (evt.target.nodeName === 'LI') {
-		evt.target.classList.add("open", "show");
+		if (!timerStarted) {
+			initTimer();
+		}
+		evt.target.classList.add("open", "show", "event");
 		cardClicked = evt.target;
 		openCards(cardClicked);
 	}
@@ -147,8 +154,8 @@ function compareCards(arr) {
 		matchedCards(arr[0].children[0], arr[1].children[0]);
 	} else {
 		setTimeout(	function() {
-			arr[0].children[0].parentElement.classList.remove("open", "show");
-			arr[1].children[0].parentElement.classList.remove("open", "show");
+			arr[0].children[0].parentElement.classList.remove("open", "show", "event");
+			arr[1].children[0].parentElement.classList.remove("open", "show", "event");
 		}, 500);
 	}
 }
@@ -163,12 +170,6 @@ function matchedCards(firstCard, secondCard) {
 	firstCard.parentElement.classList.remove("open", "show");
 	secondCard.parentElement.classList.remove("open", "show");
 
-	//Remove event listeners on matched cards
-	firstCard.parentElement.removeEventListener('click', showCard, false);
-	secondCard.parentElement.removeEventListener('click', showCard, false);
-
-	console.log("Matched cards: " + matched);
-
 	if (matched === 8) {
 		win();
 	}
@@ -176,6 +177,7 @@ function matchedCards(firstCard, secondCard) {
 
 // Start timer and set timer HTML
 function initTimer() {
+	timerStarted = true;
 	timeKeeper = setInterval(function(){
 		if (sec < 10 && min < 10) {
 			timer.textContent = "0" + min + ": " + "0" + sec
@@ -202,14 +204,6 @@ function countMove() {
 	counter++;
 	console.log("Move Number: " + counter);
 	moves.textContent = counter;
-
-	// begin clock on first move
-	if (counter === 1) {
-		hr = 0;
-		min = 0;
-		sec = 0;
-		initTimer();
-	}
 
 	if (counter <= 8) {
 		stars.style.visibility = "visible";
